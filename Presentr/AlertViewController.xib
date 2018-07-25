@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -21,6 +21,7 @@
             <connections>
                 <outlet property="bodyLabel" destination="01e-QM-I1y" id="tRQ-yB-RGk"/>
                 <outlet property="containerView" destination="fS1-yz-Dn8" id="KfC-U6-HFc"/>
+                <outlet property="dataLabel" destination="wOV-b6-qI7" id="jWA-Jt-EzF"/>
                 <outlet property="firstButton" destination="XOz-4j-5ct" id="N6t-aS-bho"/>
                 <outlet property="secondButton" destination="Ujc-0e-DaI" id="6U4-x5-dXf"/>
                 <outlet property="titleLabel" destination="hc8-UP-xE5" id="rbN-Os-hDp"/>
@@ -50,8 +51,8 @@
                             </variation>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Body" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="01e-QM-I1y">
-                            <rect key="frame" x="20" y="48.5" width="230" height="71.5"/>
-                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="15"/>
+                            <rect key="frame" x="20" y="57" width="115" height="72"/>
+                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="18"/>
                             <color key="textColor" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -93,6 +94,12 @@
                                 <constraint firstAttribute="height" constant="60" id="Re4-h4-DgJ"/>
                             </constraints>
                         </stackView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wOV-b6-qI7">
+                            <rect key="frame" x="143" y="66" width="115" height="55"/>
+                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="18"/>
+                            <color key="textColor" red="0.59215686270000001" green="0.59215686270000001" blue="0.59215686270000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -100,12 +107,16 @@
                         <constraint firstItem="TJz-B2-0wn" firstAttribute="leading" secondItem="fS1-yz-Dn8" secondAttribute="leading" id="Bu5-Eh-rT4"/>
                         <constraint firstItem="hc8-UP-xE5" firstAttribute="leading" secondItem="fS1-yz-Dn8" secondAttribute="leading" constant="20" id="D1X-KD-G6k"/>
                         <constraint firstItem="hc8-UP-xE5" firstAttribute="top" secondItem="fS1-yz-Dn8" secondAttribute="top" constant="30" id="JVN-n2-dY0"/>
-                        <constraint firstItem="TJz-B2-0wn" firstAttribute="top" secondItem="01e-QM-I1y" secondAttribute="bottom" id="K6Z-lL-609"/>
+                        <constraint firstItem="TJz-B2-0wn" firstAttribute="top" secondItem="01e-QM-I1y" secondAttribute="bottom" constant="-9" id="K6Z-lL-609"/>
                         <constraint firstAttribute="bottom" secondItem="TJz-B2-0wn" secondAttribute="bottom" id="R3V-34-yDw"/>
+                        <constraint firstItem="wOV-b6-qI7" firstAttribute="top" secondItem="hc8-UP-xE5" secondAttribute="bottom" constant="17" id="ROG-J2-uH4"/>
                         <constraint firstAttribute="trailing" secondItem="TJz-B2-0wn" secondAttribute="trailing" id="RxT-gA-vnM"/>
                         <constraint firstAttribute="trailing" secondItem="hc8-UP-xE5" secondAttribute="trailing" constant="20" id="YI1-bO-yan"/>
-                        <constraint firstAttribute="trailing" secondItem="01e-QM-I1y" secondAttribute="trailing" constant="20" id="Zr4-eI-zba"/>
-                        <constraint firstItem="01e-QM-I1y" firstAttribute="top" secondItem="hc8-UP-xE5" secondAttribute="bottom" id="xDo-gd-mwQ"/>
+                        <constraint firstAttribute="trailing" secondItem="wOV-b6-qI7" secondAttribute="trailing" constant="12" id="ZWA-pt-FKB"/>
+                        <constraint firstAttribute="trailing" secondItem="01e-QM-I1y" secondAttribute="trailing" constant="135" id="Zr4-eI-zba"/>
+                        <constraint firstItem="wOV-b6-qI7" firstAttribute="leading" secondItem="01e-QM-I1y" secondAttribute="trailing" constant="8" id="mB3-eS-anI"/>
+                        <constraint firstItem="TJz-B2-0wn" firstAttribute="top" secondItem="wOV-b6-qI7" secondAttribute="bottom" constant="-1" id="uIb-dl-Ijb"/>
+                        <constraint firstItem="01e-QM-I1y" firstAttribute="top" secondItem="hc8-UP-xE5" secondAttribute="bottom" constant="8" id="xDo-gd-mwQ"/>
                     </constraints>
                 </view>
             </subviews>

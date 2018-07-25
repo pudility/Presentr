@@ -109,6 +109,13 @@ public class AlertViewController: UIViewController, CornerRadiusSettable {
 			bodyLabel?.text = bodyText
 		}
 	}
+    
+    /// Text that will be used as the data for the alert
+    public var dataText: String = "" {
+        didSet {
+            dataLabel?.text = dataText
+        }
+    }
 
     /// If set to false, alert wont auto-dismiss the controller when an action is clicked. Dismissal will be up to the action's handler. Default is true.
     public var autoDismiss: Bool = true
@@ -121,16 +128,19 @@ public class AlertViewController: UIViewController, CornerRadiusSettable {
 	public let bodyFont: UIFont?
 
 	public let buttonFont: UIFont?
+    
+    private let largeContentMode: Bool!
 
     fileprivate var actions = [AlertAction]()
 
     @IBOutlet public weak var titleLabel: UILabel!
     @IBOutlet public weak var bodyLabel: UILabel!
+    @IBOutlet weak var dataLabel: UILabel!
     @IBOutlet public weak var firstButton: UIButton!
     @IBOutlet public weak var secondButton: UIButton!
 	@IBOutlet public weak var containerView: UIView!
 
-	public init(title: String? = nil, body: String? = nil, titleFont: UIFont? = nil, bodyFont: UIFont? = nil, buttonFont: UIFont? = nil) {
+    public init(title: String? = nil, body: String? = nil, data: String? = nil, titleFont: UIFont? = nil, bodyFont: UIFont? = nil, buttonFont: UIFont? = nil, bigText: Bool = true) {
 		if let title = title {
 			titleText = title
 		}
@@ -138,7 +148,12 @@ public class AlertViewController: UIViewController, CornerRadiusSettable {
 		if let body = body {
 			bodyText = body
 		}
-
+        
+        if let data = data {
+            dataText = data
+        }
+        
+        self.largeContentMode = bigText
 		self.titleFont = titleFont
 		self.bodyFont = bodyFont
 		self.buttonFont = buttonFont
@@ -197,6 +212,7 @@ public class AlertViewController: UIViewController, CornerRadiusSettable {
 
         titleLabel.font = titleFont ?? Font.Montserrat.font()
         bodyLabel.font = bodyFont ?? Font.SourceSansPro.font()
+        dataLabel.font = bodyFont ?? Font.SourceSansPro.font()
         firstButton.titleLabel?.font = buttonFont ?? Font.Montserrat.font(11.0)
         secondButton.titleLabel?.font = buttonFont ?? Font.Montserrat.font(11.0)
     }
@@ -204,6 +220,17 @@ public class AlertViewController: UIViewController, CornerRadiusSettable {
     private func setupLabels() {
         titleLabel.text = titleText
         bodyLabel.text = bodyText
+        dataLabel.text = dataText
+        
+        if largeContentMode {
+            bodyLabel.textAlignment = .left
+            bodyLabel.numberOfLines = 0
+            bodyLabel.sizeToFit()
+            
+            dataLabel.textAlignment = .right
+            dataLabel.numberOfLines = 0
+            dataLabel.sizeToFit()
+        }
     }
 
     private func setupButtons() {
